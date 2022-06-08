@@ -1,0 +1,40 @@
+.loader {
+  position: absolute;
+  width: calc(100% - 200px);
+  height: calc(100% - 64px);
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.settings-card {
+  padding: 20px;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  display: block; }
+
+.settings-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+
+.settings-card .title {
+  font-size: 18px;
+  font-weight: bold; }
+
+.ant-menu-submenu-title {
+  color: #6C7383;
+  font-weight: bold !important; }
+
+.ant-menu-item-icon svg {
+  font-size: 15px; }
+
+.ant-layout-header {
+  background-color: #fff; }
+
+.ant-layout {
+  background-color: #fff; }
+
+.ant-layout-footer {
+  background-color: #fff; }
