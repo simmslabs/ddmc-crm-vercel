@@ -12,9 +12,9 @@ model accounts {
   name        String    @db.VarChar(255)
   description String    @db.VarChar(255)
   balance     Int
-  created_at  DateTime? @default(now())
-  updated_at  DateTime? @default(now())
-  deleted_at  DateTime? @default(now())
+  created_at  DateTime?
+  updated_at  DateTime?
+  deleted_at  DateTime?
 }
 
 model accounts_invoices {
@@ -22,7 +22,7 @@ model accounts_invoices {
   account_id Int
   invoice_id Int
   created_at DateTime?
-  updated_at DateTime  @default(now())
+  updated_at DateTime
   deleted_at DateTime?
 
   @@index([account_id], map: "account_id")
@@ -33,7 +33,7 @@ model brand_images {
   id          Int       @id @default(autoincrement())
   image       String
   created_at  DateTime?
-  modified_at DateTime  @default(now())
+  modified_at DateTime
   deleted_at  DateTime?
   brand_id    Int
   brand       brands    @relation(fields: [brand_id], references: [id])
@@ -45,7 +45,7 @@ model brands {
   employee     Int?
   slug         String
   created_at   DateTime?
-  modified_at  DateTime       @default(now())
+  modified_at  DateTime
   brand_images brand_images[]
   inventories  inventories[]
 }
@@ -56,7 +56,7 @@ model categories {
   slug               String?
   parent_id          Int?
   created_at         DateTime?
-  modified_at        DateTime         @default(now())
+  modified_at        DateTime
   category_images_id Int?
   category_images    category_images? @relation(fields: [category_images_id], references: [id])
   inventories        inventories[]
@@ -67,7 +67,7 @@ model category_images {
   category_id Int?
   image       String
   created_at  DateTime?
-  modified_at DateTime     @default(now())
+  modified_at DateTime
   categories  categories[]
 }
 
@@ -131,7 +131,7 @@ model failed_jobs {
   queue      String   @db.Text
   payload    String   @db.LongText
   exception  String   @db.LongText
-  failed_at  DateTime @default(now())
+  failed_at  DateTime
 }
 
 model images {
@@ -139,7 +139,7 @@ model images {
   description    String?
   image          String
   created_at     DateTime?
-  modified_at    DateTime     @default(now())
+  modified_at    DateTime
   inventories_id Int?         @db.UnsignedInt
   inventory      inventories?
 }
@@ -446,7 +446,7 @@ model receipts {
   amount      Int
   description String?   @db.Text
   deleted     Boolean?  @default(false)
-  created_at  DateTime? @default(now())
+  created_at  DateTime?
   deleted_at  DateTime?
   updated_at  DateTime?
   account_id  Int?
